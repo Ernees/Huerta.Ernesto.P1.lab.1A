@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1666192966 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\main.c
+	<stdio.h>
+	<ctype.h>
+	<stdlib.h>
+	<string.h>
+	"bicicletas.h"
+	"colores.h"
+	"tipos.h"
+
+1666192430 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\colores.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"colores.h"
+
+1666192384 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\colores.h
+
+1666192429 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\tipos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tipos.h"
+
+1666192384 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\tipos.h
+
+1666192928 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\bicicletas.h
+	"colores.h"
+	"tipos.h"
+
+1666192950 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\bicicletas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"bicicletas.h"
+
