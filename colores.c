@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "colores.h"
+
 int mostrarColor(eColor vec[], int tam, int cls)
 {
     int retorno=0;
@@ -70,7 +71,7 @@ int hardcodearColores(int* pId, eColor vec[], int tam, int cant)
                               {5003, "Negro"},
                               {5004, "Rojo"}};
 
-    if(vec != NULL && tam > 0 && cant <= tam && cant <= 5)
+    if(vec != NULL && tam > 0 && cant <= tam && cant <= 5 && pId !=NULL)
     {
 
         for(int i=0; i<cant; i++)

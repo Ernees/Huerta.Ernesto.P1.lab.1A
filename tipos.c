@@ -53,7 +53,7 @@ int hardcodearTipos(int* pId, eTipo vec[], int tam, int cant)
                             {1002, "Mountain"},
                             {1003, "BMX"}};
 
-    if(vec != NULL && tam > 0 && cant <= tam && cant <= 4)
+    if(vec != NULL && tam > 0 && cant <= tam && cant <= 4 && pId!=NULL)
     {
 
         for(int i=0; i<cant; i++)

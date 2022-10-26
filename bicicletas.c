@@ -4,17 +4,17 @@
 #include <ctype.h>
 #include "bicicletas.h"
 
-int bajaBicicleta(eBicicleta vec[], eColor colores[], eTipo tipos[], int tamC, int tamT, int tam, int* pFlag)
+int bajaBicicleta(eBicicleta vec[], eColor colores[], eTipo tipos[], int tamC, int tamT, int tam)
 {
     int retorno=0;
     int id;
     int indice;
     char confirma;
 
-    if(vec!=NULL && tam>0)
+    if(vec!=NULL && tam>0 && colores!=NULL && tipos!=NULL && tamC>0 && tamT >0)
     {
         system("cls");
-        printf("      *** BAJA ALUMNO ***     \n");
+        printf("      *** BAJA BICICLETA ***     \n");
 
         mostrarBicicletas(vec, tam, tipos, tamT, colores, tamC, 1);
 
@@ -52,12 +52,14 @@ int bajaBicicleta(eBicicleta vec[], eColor colores[], eTipo tipos[], int tamC, i
             {
                 printf("Se ha cancelado la baja\n");
             }
+
+
+
         }
 
         retorno=1;
 
     }
-    *pFlag=0;
 
     return retorno;
 }
@@ -101,7 +103,7 @@ int modificarBicicletas(eBicicleta vec[], int tam, eColor colores[], int tamC, e
     char confirma;
     char auxCad[20];
 
-    if(vec!=NULL && tam>0)
+    if(vec!=NULL && tam>0 && colores!=NULL && tamC>0 && tamT>0 && tipos!=NULL)
     {
         system("cls");
         printf("      *** MODIFICAR BICICLETA ***     \n");
@@ -139,7 +141,7 @@ int modificarBicicletas(eBicicleta vec[], int tam, eColor colores[], int tamC, e
                 switch(subMenuModificar())
                 {
                     case 1:
-                        printf("Ingrese Marca actualizada: ");
+                        printf("Ingrese  actualizada: ");
                         fflush(stdin);
                         gets(auxCad);
                         while(strlen(auxCad)>20)
@@ -189,18 +191,19 @@ int modificarBicicletas(eBicicleta vec[], int tam, eColor colores[], int tamC, e
                         break;
 
                     case 4:
-                        printf("Ingrese material actualizado: ('c' para carbono o 'a' para aluminio)");
+                        printf("Ingrese material actualizado: ('c' para carbono o 'a' para aluminio)\n");
                         fflush(stdin);
                         scanf("%c", &auxMaterial);
 
-                        while(validarMarca(auxMaterial)==0)
+                        while(!validarMaterial(auxMaterial))
                         {
-                            printf("Marca invalida, reingrese la marca:\n");
+                            printf("Material invalido, reingrese el material:\n");
                             fflush(stdin);
                             scanf("%c", &auxMaterial);
                         }
 
                         vec[indice].material=auxMaterial;
+                        printf("Material modificado con exito!!!\n");
 
                         break;
                 }
@@ -221,26 +224,35 @@ int modificarBicicletas(eBicicleta vec[], int tam, eColor colores[], int tamC, e
 }
 
 
-void mostrarBiciConfirmacion(eBicicleta b, eColor colores[], int tamC, eTipo tipos[], int tamT)
+int mostrarBiciConfirmacion(eBicicleta b, eColor colores[], int tamC, eTipo tipos[], int tamT)
 {
-        char color[20];
-        char tipo[20];
-        char material[20];
+    int retorno=0;
 
-        if(b.material=='c')
+        if(colores!=NULL && tamC>0 && tipos!=NULL && tamT>0)
         {
-            strcpy(material, "Carbono");
-        }
-        else{
-            strcpy(material, "Aluminio");
+
+            char color[20];
+            char tipo[20];
+            char material[20];
+
+            if(b.material=='c')
+            {
+                strcpy(material, "Carbono");
+            }
+            else{
+                strcpy(material, "Aluminio");
+            }
+
+            cargarDescripcionColor(b.idColor, color, colores, tamC);
+            cargarDescripcionTipo(b.idTipo, tipo, tipos, tamT);
+            printf(" --------------------\n");
+            printf(" Bicicleta seleccionada:\n");
+            printf(" Id: %d \n Marca: %-10s \n Tipo: %-10s \n Color: %-10s \n material: %-10s\n", b.id, b.marca, tipo, color, material);
+            printf(" --------------------\n");
+            retorno=1;
         }
 
-        cargarDescripcionColor(b.idColor, color, colores, tamC);
-        cargarDescripcionTipo(b.idTipo, tipo, tipos, tamT);
-        printf(" --------------------\n");
-        printf(" Bicicleta seleccionada:\n");
-        printf(" Id: %d \n Marca: %-10s \n Tipo: %-10s \n Color: %-10s \n material: %-10s\n", b.id, b.marca, tipo, color, material);
-        printf(" --------------------\n");
+    return retorno;
 }
 
 
@@ -326,31 +338,32 @@ int mostrarBicicletas(eBicicleta vec[], int tam, eTipo tipo[], int tamT, eColor 
     return retorno;
 }
 
-void mostrarBici(eBicicleta b, eColor colores[], int tamC, eTipo tipos[], int tamT)
+int mostrarBici(eBicicleta b, eColor colores[], int tamC, eTipo tipos[], int tamT)
 {
-    char color[20];
-    char tipo[20];
-    char material[10];
+    int retorno=0;
 
-    if(b.material=='c')
+    if(colores!=NULL && tamC>0 && tipos!=NULL && tamT>0)
     {
-        strcpy(material, "Carbono");
-    }
-    else{
-        strcpy(material, "Aluminio");
+        char color[20];
+        char tipo[20];
+        char material[10];
+
+        if(b.material=='c')
+        {
+            strcpy(material, "Carbono");
+        }
+        else{
+            strcpy(material, "Aluminio");
+        }
+
+        cargarDescripcionColor(b.idColor, color, colores, tamC);
+        cargarDescripcionTipo(b.idTipo, tipo, tipos, tamT);
+        printf("%d%20s       %10s      %10s        %10s\n", b.id, b.marca, tipo, color, material);
+        retorno=1;
     }
 
-    cargarDescripcionColor(b.idColor, color, colores, tamC);
-    cargarDescripcionTipo(b.idTipo, tipo, tipos, tamT);
-    printf("%d%20s       %10s      %10s        %10s\n", b.id, b.marca, tipo, color, material);
-
+    return retorno;
 }
-
-
-
-
-
-
 
 
 int inicializarBicicletas(eBicicleta vec[], int tam)
@@ -462,9 +475,9 @@ int cargarBicicleta(eBicicleta* pBici, int tam, eTipo tipo[], int tamT, eColor c
         fflush(stdin);
         scanf("%c", &auxMaterial);
 
-        while(validarMarca(auxMaterial)==0)
+        while(!validarMaterial(auxMaterial))
         {
-            printf("Marca invalida, reingrese la marca:\n");
+            printf("Material invalida, reingrese el material:\n");
             fflush(stdin);
             scanf("%c", &auxMaterial);
         }
@@ -479,7 +492,7 @@ int cargarBicicleta(eBicicleta* pBici, int tam, eTipo tipo[], int tamT, eColor c
     return retorno;
 }
 
-int validarMarca(char valor)
+int validarMaterial(char valor)
 {
     int esValido=0;
     valor=tolower(valor);
@@ -493,17 +506,22 @@ int validarMarca(char valor)
 }
 
 
-
 int hardcodearBicicletas(int* pId, eBicicleta vec[], int tam, int cant)
 {
     int retorno=0;
-    eBicicleta almacenBicis[] = {{100, "Peugeot", 1000, 5003, 'a'},
-                                {101, "Mila", 1002, 5003, 'c'},
-                                {102, "Taurus", 1001, 5001, 'c'},
-                                {103, "Menia", 1004, 5002, 'a'},
-                                {104, "Spedoo", 1002, 5000, 'c'}};
+    eBicicleta almacenBicis[] = {{100, "Peugeot", 1000, 5001, 'c'},
+                                {101, "Mila", 1002, 5000, 'a'},
+                                {102, "Taurus", 1001, 5001, 'a'},
+                                {103, "Menia", 1002, 5002, 'c'},
+                                {104, "Cannondale", 1003, 5001, 'a'},
+                                {105, "Sprix", 1002, 5001, 'a'},
+                                {106, "Bicrep", 1002, 5000, 'c'},
+                                {107, "Toro", 1003, 5004, 'c'},
+                                {108, "Leight", 1002, 5001, 'a'},
+                                {109, "Craston", 1001, 5000, 'a'},
+                                {110, "Spedoo", 1002, 5003, 'c'}};
 
-    if(vec != NULL && tam > 0 && cant <= tam && cant <= 5)
+    if(vec != NULL && tam > 0 && cant <= tam && cant <= 11 && pId!=NULL)
     {
 
         for(int i=0; i<cant; i++)
@@ -512,6 +530,23 @@ int hardcodearBicicletas(int* pId, eBicicleta vec[], int tam, int cant)
             *pId = *pId + 1;
         }
         retorno=1;
+    }
+    return retorno;
+}
+
+int validarIdBici(int id, eBicicleta vec[], int tam)
+{
+    int retorno=0;
+    if(vec != NULL && tam>0 && id>0)
+    {
+        for(int i=0; i<tam; i++)
+        {
+            if(vec[i].id==id)
+            {
+                retorno=1;
+                break;
+            }
+        }
     }
     return retorno;
 }

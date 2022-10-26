@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1666192966 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\main.c
+1666795110 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\main.c
 	<stdio.h>
 	<ctype.h>
 	<stdlib.h>
@@ -7,8 +7,10 @@
 	"bicicletas.h"
 	"colores.h"
 	"tipos.h"
+	"trabajos.h"
+	"listados.h"
 
-1666192430 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\colores.c
+1666316239 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\colores.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -16,7 +18,7 @@
 
 1666192384 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\colores.h
 
-1666192429 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\tipos.c
+1666278253 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\tipos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -24,14 +26,52 @@
 
 1666192384 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\tipos.h
 
-1666192928 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\bicicletas.h
+1666749976 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\bicicletas.h
 	"colores.h"
 	"tipos.h"
 
-1666192950 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\bicicletas.c
+1666795663 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\bicicletas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"bicicletas.h"
+
+1666719899 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\servicios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicios.h"
+
+1666719915 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\servicios.h
+
+1666794238 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\trabajos.h
+	"servicios.h"
+	"colores.h"
+	"tipos.h"
+	"bicicletas.h"
+
+1666794631 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\trabajos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"trabajos.h"
+	"bicicletas.h"
+	"servicios.h"
+
+1666792319 c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\listados.h
+	"colores.h"
+	"tipos.h"
+	"bicicletas.h"
+
+1666795868 source:c:\users\huert\onedrive\escritorio\e\utn\workspace 1a\huerta.ernesto.p1.lab1.1a\listados.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"listados.h"
+	"bicicletas.h"
+	"colores.h"
+	"tipos.h"
 
